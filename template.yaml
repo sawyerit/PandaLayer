@@ -1,0 +1,47 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Transform: AWS::Serverless-2016-10-31
+Description: temperature conversion
+Globals:
+    Function:
+        Timeout: 3
+        Runtime: python3.7
+
+Resources:
+    SumFunction:
+        Type: AWS::Serverless::Function 
+        Properties:
+            CodeUri: ./
+            Handler: sum.handler
+            Layers:
+              - !Ref PandaDepLayer
+            Events:
+                HelloWorld:
+                    Type: Api
+                    Properties:
+                        Path: /sum/{values}
+                        Method: get
+
+    MaxFunction:
+        Type: AWS::Serverless::Function 
+        Properties:
+            CodeUri: ./
+            Handler: max.handler
+            Layers:
+              - !Ref PandaDepLayer
+            Events:
+                HelloWorld:
+                    Type: Api
+                    Properties:
+                        Path: /max/{values}
+                        Method: get
+
+    PandaDepLayer:
+        Type: AWS::Serverless::LayerVersion
+        Properties:
+            LayerName: sam-app-dependencies
+            Description: Dependencies for sam app [temp convert]
+            ContentUri: ./python/lib/python3.7/site-packages/
+            CompatibleRuntimes:
+              - python3.7
+            LicenseInfo: 'MIT'
+            RetentionPolicy: Retain
