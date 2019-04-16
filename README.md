@@ -3,7 +3,7 @@ Simple python example using Pandas and NumPy in a Lambda Layer
 
 
 ### SAM Local
-You can use SAM local to run the example locally.  template.yaml defines the Lambdas, Layer, and API Gateway endpoints.
+You can use SAM local to run the example locally.  `template.yaml` defines the Lambdas, Layer, and API Gateway endpoints.
 
 ```
 1. sam build
