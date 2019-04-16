@@ -1,9 +1,9 @@
 # PandaLayer
-python example using Pandas and NumPy in a lambda layer
+Simple python example using Pandas and NumPy in a Lambda Layer
 
 
 ### SAM Local
-uses template.yaml to define lambda, layer, and api gateway endpoints
+uses template.yaml to define the Lambda, Layer, and API Gateway endpoints
 
 ```
 1. sam build
@@ -20,10 +20,10 @@ uses template.yaml to define lambda, layer, and api gateway endpoints
 2. `zip -r my-Python37-Pandas23.zip ./python`
   Creates a zip of the python/lib/python3.7/site-packages folder
   
-3. Upload this zip as a lambda layer, python 3.7 compatibility
+3. Upload this zip as a lambda layer with python 3.7 compatibility
 
-4. Create your lambda function and choose the newly created layer
-  be sure to also choose the aws provide numpy scipy layer
+4. Create your lambda function and add your newly created layer.
+  Be sure to also choose the AWS provided numpy scipy layer.
   
 <br /><br />
 Created from this great tutorial by Quy Tang https://medium.com/@qtangs/creating-new-aws-lambda-layer-for-python-pandas-library-348b126e9f3e
